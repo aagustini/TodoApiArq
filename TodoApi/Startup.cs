@@ -41,7 +41,6 @@ namespace TodoApi
             services.AddSingleton(typeof(ICrud<>), typeof(CrudEF<>));
 
             services.AddSingleton<ICrudTodoItem, CrudTodoItemEF>();
-            //services.AddTransient<ICrudTodoItem, CrudTodoItemEF>();
 
         }
 

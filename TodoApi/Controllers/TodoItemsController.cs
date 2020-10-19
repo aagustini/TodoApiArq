@@ -7,6 +7,7 @@ using Entidades.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PersistenceLayer.Entidades;
 using PersistenceLayer.Interfaces;
 
 namespace TodoApi.Controllers
@@ -32,6 +33,15 @@ namespace TodoApi.Controllers
             //List<TodoItem> lista = new List<TodoItem> { 
             //    new TodoItem(){ Id = 10, Name = "aaa"}};
             return lista.Select(x => ItemToDTO(x)).ToList();
+        }
+
+        [HttpGet]
+        [Route("/api/pendentes")]
+        public int GetPendentes()
+        {
+            var nro = _todos.getPendentes();
+        
+            return nro;
         }
 
         [HttpGet("{id}")]

@@ -4,6 +4,7 @@ using PersistenceLayer.Interfaces;
 using PersistenceLayer.Repositorisos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace PersistenceLayer.Entidades
@@ -19,5 +20,13 @@ namespace PersistenceLayer.Entidades
             _optionsbuilder = new DbContextOptions<TodoContext>();
         }
 
+        public int getPendentes()
+        {
+            using (var data = new TodoContext(_optionsbuilder))
+            {
+                return data.TodoItems.Where(t=>t.IsComplete==false).Count();
+            }
+        }
     }
+
 }

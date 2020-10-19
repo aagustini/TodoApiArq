@@ -6,6 +6,17 @@ function getItems() {
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => console.error('Unable to get items.', error));
+
+    getPendentes();
+}
+
+
+function getPendentes() {
+    fetch('api/pendentes')
+        .then(response => response.json())
+        .then(data => document.getElementById('nro-pendentes')
+            .innerText = data + ' itens pendentes')
+        .catch(error => console.error('Unable to get items.', error));
 }
 
 function addItem() {

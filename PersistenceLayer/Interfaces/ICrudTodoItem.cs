@@ -5,6 +5,9 @@ using System.Text;
 
 namespace PersistenceLayer.Interfaces
 {
-    public interface ICrudTodoItem : ICrud<TodoItem> { 
+    public interface ICrudTodoItem : ICrud<TodoItem> {
+
+        int getPendentes();
+
     }
 }
